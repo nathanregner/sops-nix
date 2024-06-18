@@ -61,7 +61,7 @@ let
 
       group = lib.mkOption {
         type = lib.types.str;
-        default = users.${config.owner}.group;
+        # default = users.${config.owner}.group;
         defaultText = lib.literalMD "{option}`config.users.users.\${owner}.group`";
         description = ''
           Group of the file.
