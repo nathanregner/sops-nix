@@ -51,6 +51,23 @@ let
         '';
       };
 
+      owner = lib.mkOption {
+        type = lib.types.str;
+        default = "root";
+        description = ''
+          User of the file.
+        '';
+      };
+
+      group = lib.mkOption {
+        type = lib.types.str;
+        default = users.${config.owner}.group;
+        defaultText = lib.literalMD "{option}`config.users.users.\${owner}.group`";
+        description = ''
+          Group of the file.
+        '';
+      };
+
       sopsFile = lib.mkOption {
         type = lib.types.path;
         default = cfg.defaultSopsFile;
