@@ -245,6 +245,10 @@ in {
     };
   };
 
+  imports = [
+    ../sops/templates
+  ];
+
   config = lib.mkIf (cfg.secrets != {}) {
     assertions = [{
       assertion = cfg.gnupg.home != null || cfg.gnupg.sshKeyPaths != [] || cfg.age.keyFile != null || cfg.age.sshKeyPaths != [];
